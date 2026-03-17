@@ -45,8 +45,8 @@ go version
 ### 2. Клонирование репозитория
 
 ```bash
-git clone 
-cd
+git clone https://github.com/kolbqskq/green-api-test
+cd green-api-test
 ```
 
 ---
