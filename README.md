@@ -53,7 +53,7 @@ cd green-api-test
 
 ### 3. Настройка окружения
 
-Необходимо задать переменные окружения:
+Необходимо создать .env файл в соответствии c .env.example и задать переменные окружения:
 
 ```bash
 INSTANCE_ID= #idInstance
@@ -62,16 +62,7 @@ API_URL= #apiUrl
 CHAT_ID= #chatId
 ```
 
-Пример (Linux/macOS):
 
-```bash
-export INSTANCE_ID=xxx
-export API_TOKEN=xxx
-export API_URL=xxx
-export CHAT_ID=xxx
-```
-
-Или создать .env файл в соответствии c примером: .env.example
 
 ---
 
