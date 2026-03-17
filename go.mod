@@ -3,6 +3,7 @@ module green-api-test
 go 1.25.6
 
 require (
+	github.com/caarlos0/env/v11 v11.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/stretchr/testify v1.11.1
 )

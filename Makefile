@@ -1,4 +1,7 @@
 
+include .env
+export
+
 test:
 	go test -v ./tests
 

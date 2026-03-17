@@ -4,27 +4,27 @@ import (
 	"log"
 	"os"
 
+	"github.com/caarlos0/env/v11"
 	"github.com/joho/godotenv"
 )
 
 type Config struct {
-	InstanceID       string
-	APITokenInstance string
-	APIURL           string
-	ChatID           string
+	InstanceID       string `env:"INSTANCE_ID"`
+	APITokenInstance string `env:"API_TOKEN"`
+	APIURL           string `env:"API_URL"`
+	ChatID           string `env:"CHAT_ID"`
 }
 
 func Init() *Config {
-	if err := godotenv.Load("../.env"); err != nil {
-		log.Println("Не удалось прочитать .env")
+	var cfg Config
+
+	godotenv.Load("../.env")
+
+	if err := env.Parse(&cfg); err != nil {
+		log.Fatal("Не удалось прочитать .env")
 	}
 
-	return &Config{
-		InstanceID:       getRequiredString("INSTANCE_ID"),
-		APITokenInstance: getRequiredString("API_TOKEN"),
-		APIURL:           getRequiredString("API_URL"),
-		ChatID:           getRequiredString("CHAT_ID"),
-	}
+	return &cfg
 }
 
 func getRequiredString(key string) string {

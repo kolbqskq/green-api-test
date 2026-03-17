@@ -1,0 +1,31 @@
+name: Go CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      INSTANCE_ID: ${{ secrets.INSTANCE_ID }}
+      API_TOKEN: ${{ secrets.API_TOKEN }}
+      API_URL: ${{ secrets.API_URL }}
+      CHAT_ID: ${{ secrets.CHAT_ID }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+
+      - name: Install dependencies
+        run: go mod tidy
+
+      - name: Run tests
+        run: go test -v -count=1 ./tests
